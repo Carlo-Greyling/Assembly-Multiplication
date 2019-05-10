@@ -1,0 +1,72 @@
+	Data section. Used for declaring constants or initialized data
+
+	A constant variable for a string message is created
+	Equ is used as a constant symbol for the variable len1 that determines the constant length of msg1. 
+	STILL LINE 4: $ reffers to the last byte after the last character of msg1, thus length is determined by $-msg1(total bytes in msg1) 
+	A constant variable for a string message is created
+	Equ is used as a constant symbol for the variable len2 that determines the constant length of msg2. 
+	STILL LINE 7: $ reffers to the last byte after the last character of msg2, thus length is determined by $-msg2(total bytes in msg2)
+	A constant variable for a string message is created
+	Equ is used as a constant symbol for the variable len3 that determines the constant length of msg3. 
+	STILL LINE 10: $ reffers to the last byte after the last character of msg3, thus length is determined by $-msg1(total bytes in msg3)
+	Bss section. Used for declaring variables
+	resb is used to declare an uninitialised storage space, the numerical digit afterwards reffers to the number of bytes the variable contains
+	a variable num1 that will contain the first user input number is created, uninitialised
+	a variable num2 that will contain the second user input number is created, uninitialised
+	a variable that will contain the result of multiplication of num1 and num2 is created, uninitialised
+	
+	Section that contains actual program code
+	Tells the Kernel where to start executing the program
+	
+	Entry symbol where Kernel starts executing the program
+	System call number for (SYS_WRITE)
+	System call number for (STDOUT)
+	Transfers the data of msg1 to the ecx register to be displayed
+	Transfers the length of msg1 to the edx register to instruct the Kernel to output a certain number of bytes
+	Instruction to call the Kernel
+	
+	System call number for (SYS_READ)
+	System call number for (STDIN)
+	Transfers the value of the variable num1 into the ecx register
+	Transfers the value of 2 to the edx register
+	Instruction to call the Kernel
+	
+	System call number for (SYS_WRITE)
+	System call number for (STDOUT)
+	Transfers the data of msg2 to the ecx register to be displayed
+	Transfers the length of msg2 to the edx register to instruct the Kernel to output a certain number of bytes
+	Instruction to call the Kernel
+	
+	System call number for (SYS_READ)
+	System call number for (STDIN)
+	Transfers the value of the variable num2 into the ecx register
+	Transfers the value of 2 to the edx register
+	Instruction to call the Kernel
+	
+	System call number for (SYS_WRITE)
+	System call number for (STDOUT)
+	Transfers the data of msg3 to the ecx register to be displayed
+	Transfers the length of msg3 to the edx register to instruct the Kernel to output a certain number of bytes
+	Instruction to call the Kernel
+	
+	Reads the value stored in memory from the address given to num1 and stores into the eax register
+	Subtracting ASCII '0' to convert num1 into a decimal number from binary
+	
+	Reads the value stored in memory from the address given to num2 and stores into the eax register
+	Subtracting ASCII '0' to convert num1 into a decimal number from binary
+	
+	multiply the ebx register with the eax register eax *= ebx
+	Adding 0 to convert the decimal number back into ASCII readable format
+	
+	Stores the value of the eax register (result of multiplication in ASCII format) into the res memory location
+	
+	System call number for (SYS_WRITE)
+	System call number for (STDOUT)
+	Transfer the value of the res register (result of multiplication in ASCII format) into the ecx
+	Transfers the value of 1 to the edx register
+	Instruction to call the Kernel
+	
+	
+	
+	System call variable, exits system
+	Instruction to call the Kernel
